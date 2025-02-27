@@ -56,25 +56,25 @@ const authController = {
       // create a token
       const token = jwt.sign({ id: user._id }, JWT_SECRET);
 
-      // set the token in the cookie
-      // res.cookie('token', token, {
-      //     httpOnly: true,
-      //     secure: true,
-      //     sameSite: 'Strict',
-      //     path: "/", // the cookie will be sent for all routes
-      // });
+       ///set the token in the cookie
+      res.cookie('token', token, {
+         httpOnly: true,
+       secure: true,
+      sameSite: 'Strict',
+          path: "/", // the cookie will be sent for all routes
+      });
 
       res.header(
         "Set-Cookie",
         "token=" + token + "; HttpOnly; Secure; SameSite=None; Path=/;"
       );
 
-      // res.cookie('token', token, {
-      //     httpOnly: true,
-      //     secure: true,
-      //     sameSite: 'None',
-      //     path: "/", // the cookie will be sent for all routes
-      // });
+      res.cookie('token', token, {
+         httpOnly: true,
+          secure: true,
+         sameSite: 'None',
+        path: "/", // the cookie will be sent for all routes
+       });
 
       // return a success message
       res.status(200).json({ message: "Login successful" });
@@ -85,7 +85,7 @@ const authController = {
   logout: async (req, res) => {
     try {
       // clear the token from the cookie
-      // res.clearCookie('token');
+       res.clearCookie('token');
 
       res.header(
         "Set-Cookie",
