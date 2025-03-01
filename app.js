@@ -14,7 +14,7 @@ app.use(cookieParser());
 app.use(morgan("dev"));
 app.use(
   cors({
-    origin: "fe-jobsapp-pro.netlify.app",
+    origin: "https://fe-jobsapp-pro.netlify.app",
     credentials: true,
   })
 );
